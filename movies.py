@@ -12,7 +12,7 @@ actress TEXT,
 yearOfRelease INTEGER,);''')
 
 cnt.execute('''INSERT INTO movies VALUES(
-'Entertainment', 'Akshay Kumar','Tamannaah', 2014);''')
+'Entertainment', 'Akshay','Tamannaah', 2014);''')
 
 cnt.commit()
 
