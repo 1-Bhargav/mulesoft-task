@@ -1,22 +1,28 @@
-
 import sqlite3
 
+#connection
+cnt = sqlite3.connect("demo.db")
+print('Connection established Successfully')
 
-cnt = sqlite3.connect("bollywood")
+#create table
+# cnt.execute('''CREATE TABLE movies(
+# name TEXT,
+# actor TEXT,
+# actress TEXT,
+# yearOfRelease INTEGER)''')
+# print("Table Created Successfully")
 
 
-cnt.execute('''CREATE TABLE movies(
-name TEXT,
-actor TEXT,
-actress TEXT,
-yearOfRelease INTEGER,);''')
-
+#insert record
 cnt.execute('''INSERT INTO movies VALUES(
-'Entertainment', 'Akshay Kumar','Tamannaah', 2014);''')
-
+'Entertainment', 'Akshay Kumar', 'Tamannaah', 2014);''')
 cnt.commit()
+print("Record Insert Successfully")
 
+#fetch record
+cursor=cnt.execute("SELECT * FROM movies")
+print(cursor.fetchall())
 
-cnt.execute('SELECT * FROM movies')
-
-cnt.execute('SELECT * FROM movies WHERE actor = 'Akshay Kumar'')
+#fetch record with filter
+cursor=cnt.execute("SELECT * FROM movies WHERE actor = 'Akshay Kumar'")
+print(cursor.fetchall())
